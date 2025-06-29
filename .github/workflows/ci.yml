@@ -30,7 +30,7 @@ jobs:
 
       - name: Run tests with Pytest + Allure
         run: |
-          pytest --alluredir=allure-results --headless -v
+          pytest --alluredir=allure-results -v
 
       - name: Upload Allure results (optional)
         if: always()
