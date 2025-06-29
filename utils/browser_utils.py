@@ -1,8 +1,16 @@
-import pyautogui
+import os
 
 def get_screen_size():
-    screen_width, screen_height = pyautogui.size()
-    return screen_width, screen_height
+    if os.getenv("CI"):
+        # Headless mode: return default resolution
+        return {"width": 1920, "height": 1080}
+    else:
+        try:
+            import pyautogui
+            width, height = pyautogui.size()
+            return {"width": width, "height": height}
+        except Exception:
+            return {"width": 1366, "height": 768}
 
 def wait_for_page_load_successfully(page, state="networkidle", timeout=10000):
     """
