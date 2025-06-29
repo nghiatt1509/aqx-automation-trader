@@ -41,12 +41,21 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-2. Setup .env (optional)
+2. Install requirements
+- 📦 For CI or Linux/macOS without GUI:
+```
+pip install -r requirements.txt
+```
+- 🧪 For local development with GUI (e.g., Mac, PyAutoGUI):
+```
+pip install -r requirements-dev.txt
+```
+3. Setup .env (optional)
 ```
 BASE_URL=https://aqxtrader.aquariux.com/web
 LOGIN_URL=https://aqxtrader.aquariux.com/web/login
 ```
-3. Run tests and generate Allure report
+4. Run tests and generate Allure report
 # Run tests with detailed output 
 ```bash
 pytest --alluredir=allure-results --headed -v
