@@ -1,5 +1,7 @@
 ## AQX Automation Trader
 
+![CI](https://github.com/nghiatt1509/aqx-automation-trader/actions/workflows/ci.yml/badge.svg)
+
 Automation framework for testing core trading functionalities on the AQX Trading Platform, built using Playwright, Pytest, and Allure Report.
 
 ## 🚀 Features
@@ -7,9 +9,10 @@ Automation framework for testing core trading functionalities on the AQX Trading
 - ✅ Login with data-driven credentials (from JSON)
 - ✅ Place Market Orders with Stop Loss / Take Profit / Volume
 - ✅ Verify order placed successfully (via UI table)
-- ✅ Close bulk-close all
+- ✅ Close bulk-close all opening Orders
 - ✅ Allure report with step-by-step detail
 - ✅ Framework built using POM structure
+- ✅ CI/CD via GitHub Actions
 
 ## 📁 Project Structure
 ```
@@ -64,3 +67,33 @@ pytest --alluredir=allure-results --headed -v
 ```bash
 allure serve allure-results
 ```
+```
+✅ --headed shows the browser UI. Use headless for CI runs.
+📌 -v enables verbose output.
+```
+
+## 🔄 Continuous Integration (CI)
+
+- This project includes a GitHub Actions workflow (.github/workflows/ci.yml) that:
+- Runs on every push or pull request to main
+- Installs Python, Playwright, and all dependencies
+- Executes all tests using Pytest
+- Collects Allure test results as artifacts
+- CI runs are visible under the Actions tab on GitHub
+
+### 📤 View Allure Report from GitHub CI
+
+After each test run on GitHub Actions, an artifact named `allure-results` is uploaded.
+
+To view the report:
+
+1. Go to the **Actions** tab
+2. Select the latest workflow run
+3. Download the artifact named **`allure-results`**
+4. On your local machine:
+```bash
+   allure serve allure-results
+```
+
+## 📄 License
+MIT © 2025 Nghia Tran
